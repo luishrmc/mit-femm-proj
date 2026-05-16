@@ -1,0 +1,92 @@
+\section{Item a)}
+
+A máquina considerada possui \(S=36\) ranhuras no estator, \(P=6\) polos e \(m=3\) fases. Assim, o número de ranhuras por polo por fase é dado por
+\[
+q=\frac{S}{mP} \Rightarrow q=\frac{36}{3\cdot 6}=2.
+\]
+
+Como o enunciado estabelece um cinturão por fase por polo, adota-se $n=q=2$, em que \(n\) representa o número de ranhuras, ou lados de bobina equivalentes, que participam da soma fasorial dentro de cada cinturão de fase. O passo mecânico entre ranhuras adjacentes é:
+\[
+\gamma_m=\frac{360^\circ}{S} \Rightarrow \gamma_m=\frac{360^\circ}{36}=10^\circ.
+\]
+
+A conversão entre ângulo mecânico e ângulo elétrico da máquina é:
+\[
+\gamma=\frac{P}{2}\gamma_m \Rightarrow \gamma=\frac{6}{2}\cdot 10^\circ=30^\circ.
+\]
+
+O fator de passo da componente fundamental é definido abaixo, em que \(\rho\) é o passo elétrico da bobina, em graus elétricos.
+\[
+k_p=\sin\left(\frac{\rho}{2}\right) \Rightarrow k_p=\sin\left(\frac{180^\circ}{2}\right)=\sin(90^\circ)=1
+\]
+
+O fator de distribuição é obtido pela soma fasorial das tensões ou FMMs produzidas por \(n\) ranhuras distribuídas em um cinturão de fase. Para a componente fundamental,
+\[
+k_d=
+\frac{\sin\left(\frac{n\gamma}{2}\right)} {n\sin\left(\frac{\gamma}{2}\right)} \Rightarrow k_d=\frac{\sin\left(\frac{2\cdot 30^\circ}{2}\right)}{2\sin\left(\frac{30^\circ}{2}\right)} \Rightarrow k_d=\frac{\sin(30^\circ)}{2\sin(15^\circ)} \Rightarrow k_d=\frac{0{,}5}{2\cdot 0{,}258819}=0{,}9659.
+\]
+
+O fator de enrolamento é o produto entre o fator de passo e o fator de distribuição,
+\[
+k_w=k_p k_d \Rightarrow k_w=1\cdot 0{,}9659=0{,}9659.
+\]
+
+A passagem de camada simples para camada dupla não altera, por si só, o valor dos fatores fundamentais de enrolamento. Esses fatores dependem da distribuição espacial dos lados de bobina e do passo da bobina. Portanto, para a configuração de camada dupla e passo pleno, mantendo-se a mesma distribuição espacial e o mesmo passo de bobina, obtém-se novamente
+\[
+k_p=1, \quad k_d=0{,}9659, \quad k_w=0{,}9659.
+\]
+
+Para a configuração de camada dupla e passo encurtado, considera-se passo igual a \(5/6\) do passo polar. Como o passo polar corresponde a \(180^\circ\) elétricos,
+\[
+\rho=\frac{5}{6}\cdot 180^\circ=150^\circ.
+\]
+
+O fator de passo da fundamental torna-se:
+\[
+k_p=\sin\left(\frac{150^\circ}{2}\right)=\sin(75^\circ) \Rightarrow k_p=0{,}9659.
+\]
+
+O fator de distribuição permanece o mesmo, pois a distribuição em ranhuras dentro do cinturão de fase não foi alterada. Assim, o fator de enrolamento para a configuração de camada dupla e passo encurtado é:
+
+\[
+k_w=k_p k_d \Rightarrow k_w=0{,}9659\cdot 0{,}9659 \Rightarrow k_w=0{,}9330.
+\]
+
+O passo encurtado reduz levemente a componente fundamental, mas pode reduzir de modo muito mais intenso determinadas componentes harmônicas. Esse efeito ocorre porque uma harmônica espacial de ordem \(v\) percebe o passo da bobina como \(v\rho\), e não apenas como \(\rho\). Assim, o fator de passo, fator de distribuição e fator de enrolamento para a harmônica de ordem \(v\) são definidos por:
+\[
+k_{p,v}=\sin\left(\frac{v\rho}{2}\right) \qquad k_{d,v}=\frac{\sin\left(\frac{nv\gamma}{2}\right)}{n\sin\left(\frac{v\gamma}{2}\right)} \qquad k_{w,v}=k_{p,v}k_{d,v}.
+\]
+
+
+Dessa forma, o passo encurtado de \(5/6\) reduz a fundamental de \(1\) para \(0{,}9659\), isto é, uma redução pequena, combinado ao efeito de distribuição, reduz fortemente a quinta e a sétima harmônicas. Essa é uma das razões práticas para o uso de enrolamentos encurtados em máquinas CA, em que sacrifica-se uma pequena parcela da componente fundamental para reduzir de modo mais significativo componentes harmônicas indesejadas \cite{FitzgeraldKingsleyUmans2014,Chapman2013MaquinasEletricas}.
+
+Além disso, em sistemas trifásicos equilibrados, as harmônicas múltiplas de três possuem tratamento particular, pois as componentes de terceira, nona e demais harmônicas triplas tendem a aparecer em fase nas três fases. Consequentemente, dependendo da ligação do enrolamento, essas componentes podem não aparecer nas tensões de linha ou podem circular internamente. Assim, depois das harmônicas triplas, as componentes de quinta e sétima ordem tornam-se especialmente relevantes para a análise de qualidade da forma de onda de campo, FMM e tensão induzida \cite{Chapman2013MaquinasEletricas}.
+\[
+\begin{array}{c c c c c c c}
+    \hline
+    \text{Configuração} & \rho & \gamma & n & k_p & k_d & k_w \\
+    \hline
+    \text{Camada simples, passo pleno} 
+    & 180^\circ 
+    & 30^\circ 
+    & 2 
+    & 1{,}0000 
+    & 0{,}9659 
+    & 0{,}9659 \\
+    \text{Camada dupla, passo pleno} 
+    & 180^\circ 
+    & 30^\circ 
+    & 2 
+    & 1{,}0000 
+    & 0{,}9659 
+    & 0{,}9659 \\
+    \text{Camada dupla, passo encurtado } 5/6 
+    & 150^\circ 
+    & 30^\circ 
+    & 2 
+    & 0{,}9659 
+    & 0{,}9659 
+    & 0{,}9330 \\
+    \hline
+\end{array}
+\]

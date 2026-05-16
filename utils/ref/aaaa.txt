@@ -1,0 +1,152 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[brazil]{babel}
+
+
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=2cm,right=2cm,marginparwidth=0cm]{geometry}
+
+% Useful packages
+
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=cyan, citecolor=red]{hyperref}
+
+\title{Projeto FEMM – Motores de Corrente Alternada}
+\author{Lucas Vasconcelos e David Protil}
+
+\begin{document}
+\date{}
+\maketitle
+
+
+\section{Introdução}
+
+Este trabalho tem como objetivo o estudo de um motor de indução trifásico através de simulação pelo software FEMM. A máquina possui enrolamento de estator de 4 polos: 20 espiras por bobina; camada única; ligação série; 3 bobinas por grupo; passo: 1:8:10:12. O motor tem um entreferro de 0,50 mm,
+comprimento de 140 mm, diametro interno de 115mm e corrente nominal 6,16A. Os condutores do rotor são de alumínio, figura \ref{fig:fig1a}. A simulação é magnetostática, e por isso foi utilizado um momento $t$, tal que a corrente da fase $A$ é máxima, $8,71A$, e das fases $B$ e $C$ são $-4,355A$. O aço elétrico utilizado nas laminações do motor é o E230 de 0,50 mm, a curva BxH do material, figura \ref{fig:fig1b}, foi construída a partir de dados do  \href{https://www.aperam.com/pt-br/o-que-e-aco-eletrico/}{fabricante}. 
+
+    \begin{figure*}[h!] 
+
+            \centering
+                \begin{subfigure}[b]{0.32\linewidth} % Fig (a)
+                    \includegraphics[width=\linewidth]{Imagens/Distribuído.png}
+                    \caption{Esquema do motor no software FEMM.}
+                    \label{fig:fig1a}
+                \end{subfigure}
+            \hspace{15pt}   % Space between the figures
+                \begin{subfigure}[b]{0.37\linewidth} % Fig (b)
+                    \centering
+                    \includegraphics[width=\linewidth]{Imagens/Curva BxH.png}
+                    \caption{Curva BxH - Aço elétrico Aperam E230 de 0,5mm. }
+                    \label{fig:fig1b}
+                \end{subfigure}
+            \caption{}
+            \label{fig:examplefloat}
+        \end{figure*}
+
+
+\subsection{Questão A}
+
+    A fase $A$ possui 2 grupos de 3 bobinas, $A_1$,$A_2$,$A_3$ e $A_3$,$A_4$,$A_5$.
+            \begin{table}[h!]
+            \centering
+            \begin{tabular}{cc}
+                \hline
+                Bobina & Enlace $\phi$ [Wb] \\
+                \hline
+                $A_1$ e $A_4$ & $ 0,1192$\\
+                $A_2$ e $A_5$ & $0,1229$\\
+                $A_3$ e $A_6$ & $0,1189$\\
+                \hline 
+            \end{tabular}
+            \caption{Enlace de fluxo das bobinas da fase $A$.}
+            
+
+            \label{tab:tabela2}
+        \end{table}
+    
+    \subsection{Questão B}
+
+    Para obter o enlace de fluxo de uma fase, caso o enrolamento fosse concentrado e de passo pleno, a simulação foi realizada com a configuração da figura \ref{fig:fig2a}. O enlace encontrado para uma bobina da fase $A$ foi de $0,4221$ Wb.
+
+     \begin{figure*}[h] 
+            \centering
+                \begin{subfigure}[b]{0.28\linewidth} % Fig (a)
+                    \includegraphics[width=\linewidth]{Imagens/Concentrado.png}
+                    \caption{Configuração com enrolamento concentrado}
+                    \label{fig:fig2a}
+                \end{subfigure}
+                \begin{subfigure}[b]{0.44\linewidth} % Fig (b)
+                    \includegraphics[width=\linewidth]{Imagens/Fundamental.png}
+                    \caption{Distribuição espacial da densidade de fluxo no entreferro, $B_g$($\theta $) e $B_g^1(\theta)$.}
+                    \label{fig:fig2b}
+                \end{subfigure}
+                \caption{}
+            \hspace{0pt}   % Space between the figures
+            \label{fig:figura2}
+        \end{figure*}
+
+
+    
+\subsection{Questão C}
+
+O fator de enrolamento pode ser calculado pela razão entre o somatório de enlaces de um grupo da fase $A$, pelo enlace da bobina de enrolamento concentrado de passo pleno equivalente, equação \ref{eq1}.
+
+    \begin{equation}\label{eq1}
+        k_{enr} =  \frac{0,1192+0,1229+0,1189}{0,4222} = 0,855
+    \end{equation}
+
+    
+    
+\subsection{Questão D e E}
+    A distribuição espacial da densidade de fluxo no entreferro $B_g$($\theta $) e sua componente fundamental $B_g^1(\theta)$ podem ser visualizadas na figura \ref{fig:fig2b}. 
+    
+
+\subsection{Questão F}
+O fluxo por polo pode ser calculado integrando a densidade de fluxo, $B_g(\theta)$, sobre a área do polo, equação \ref{eq2}. Com a componente fundamental, $B_g^1(\theta)$ de pico igual a $0,791T$, podemos calcular o fluxo por polo pela equação \ref{eq3}. 
+
+    \begin{equation}\label{eq2}
+        \Phi_{pB_g} = \int_{0}^{\frac{\pi}{2}} B_gdA = l * r * \int_{0}^{\frac{\pi}{2}}B_g(\theta) d\theta =  0,006141 Wb
+    \end{equation}
+
+\begin{equation}\label{eq3}
+    \Phi_{pB_g^1} = l * r * B_{pico} = 0,006375Wb
+    \end{equation}
+
+
+\subsection{Questão G}
+A simulação foi realizada a $1Hz$ para encontrar a densidade de corrente no rotor para $s\omega_e = 1Hz$, figura \ref{fig:fig3a}.
+A corrente total em cada barra de alumínio e seu respectivo volume foram medidos. Em seguida, o volume foi dividido pelo comprimento axial para calcular a área da barra. Com a corrente e a área da barra, é possível determinar o valor de J. Utilizando os valores de J e os ângulos mecânicos $\theta$, obteve-se o gráfico mostrado na figura \ref{fig:fig3b}. 
+
+\begin{figure*}[h!]
+    \centering
+    \begin{subfigure}[]{0.33\linewidth} % Subfigura (a)
+        \includegraphics[width=\linewidth]{Imagens/DensidadeDeCorrente.png}
+        \caption{Densidade de corrente para $s\omega_e = 1Hz$.}
+        \label{fig:fig3a}
+    \end{subfigure}
+    \hspace{15pt} % Espaço entre subfiguras
+    \begin{subfigure}[]{0.38\linewidth} % Subfigura (b)
+        \includegraphics[width=\linewidth]{Imagens/Escada.jpg}
+        \caption{Distribuição espacial da densidade de corrente nas barras do rotor, $J(\theta)$.}
+        \label{fig:fig3b}
+    \end{subfigure}
+    \caption{}
+    \label{fig:fig3}
+\end{figure*}
+
+
+
+\bibliographystyle{alpha}
+
+\bibliography{sample}
+    "Máquinas Elétricas", Fitzgerald e Kingsley - 7°ed.
+\end{document}

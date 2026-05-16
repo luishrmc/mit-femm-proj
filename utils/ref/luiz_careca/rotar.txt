@@ -1,0 +1,25 @@
+#LER#
+Para rodar o rotor lá no FEMM, abrir a aba view e abrir lua console
+Copiar essa parte embaixo de "1-. Rotar grupo:"
+No comando "mi_moverotate(0,0,5)" o 5 é o número de graus que vai rodar
+Pode mudar para o valor que quiser
+
+1-. Rotar grupo:
+mi_seteditmode("group")
+mi_selectgroup(1)
+mi_moverotate(0,0,5)
+
+2-. Ciclo: Rotar-Simular-Tomar foto:
+dAlfa=30
+mi_saveas("temp.fem")
+mi_seteditmode("group")
+for n=1,(180/dAlfa+1) do
+ mi_analyse()
+ mi_loadsolution()
+ mo_showdensityplot(0,0,1.5,0,"mag")
+ alfa=dAlfa*(n-1)
+ mo_savebitmap(format("acgen_%1$d.bmp",alfa))
+ mo_close()
+ mi_selectgroup(1)
+ mi_move_rotate(0,0,dAlfa)
+end

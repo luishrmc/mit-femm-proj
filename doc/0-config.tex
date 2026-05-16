@@ -1,0 +1,111 @@
+% ==========================================================
+% 00_config.tex
+% Arquivo central de configuração do template LaTeX
+% Organiza pacotes, metadados do documento e layout da página.
+% ==========================================================
+
+% ==========================================================
+% METADADOS E VARIÁVEIS DO DOCUMENTO
+% ==========================================================
+\title{Projeto FEMM -- Máquinas de Corrente Alternada}                         % Título principal do documento.
+\author{Luis Henrique Ribeiro Maciel}       % Nome do autor.
+\date{Maio 2026}                           % Data exibida na capa.
+
+\def\uname{Universidade Federal de Minas Gerais} % Nome da universidade.
+\def\depart{Escola de Engenharia}                % Unidade ou departamento.
+\def\materia{Conversão de Energia}               % Disciplina.
+\def\turma{Turma TA}                              % Turma.
+
+% Salva título, autor e data em comandos reutilizáveis.
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+% ----------------------------------------------------------
+% IDIOMA, ENCODIFICAÇÃO E FORMATAÇÃO BÁSICA DO TEXTO
+% ----------------------------------------------------------
+\usepackage[utf8]{inputenc}   % Permite escrever caracteres acentuados diretamente no arquivo.
+\usepackage[brazil]{babel}    % Ajusta hifenização, nomes automáticos e convenções para português do Brasil.
+\usepackage{indentfirst}      % Indenta o primeiro parágrafo de cada seção.
+\usepackage{parskip}          % Adiciona espaçamento entre parágrafos para melhorar a legibilidade.
+
+% ----------------------------------------------------------
+% MATEMÁTICA, SÍMBOLOS E NOTAÇÃO TÉCNICA
+% ----------------------------------------------------------
+\usepackage{amsmath}          % Ambientes e comandos avançados para fórmulas matemáticas.
+\usepackage{amssymb}          % Conjunto ampliado de símbolos matemáticos.
+\usepackage{steinmetz}        % Facilita a escrita de notação fasorial e ângulos, útil em elétrica.
+\usepackage{pifont}           % Disponibiliza símbolos extras, como marcas, setas e ícones simples.
+
+% ----------------------------------------------------------
+% FIGURAS, LEGENDAS E ELEMENTOS FLUTUANTES
+% ----------------------------------------------------------
+\usepackage{graphicx}         % Permite inserir imagens no documento.
+\usepackage{caption}          % Personaliza legendas de figuras e tabelas.
+\usepackage{subcaption}       % Permite criar subfiguras e sublegendas.
+\usepackage{float}            % Oferece maior controle sobre a posição de figuras e tabelas.
+\usepackage{tikz}             % Ferramenta poderosa para criar gráficos vetoriais diretamente no LaTeX, útil para diagramas de rede.
+\usepackage{enumitem}         % Personaliza listas enumeradas e não enumeradas, como itemize e enumerate.
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+% ----------------------------------------------------------
+% TABELAS E ESTRUTURA TABULAR
+% ----------------------------------------------------------
+\usepackage{booktabs}       % Melhora a qualidade visual de tabelas com regras horizontais adequadas.
+\usepackage{multirow}       % Permite mesclar várias linhas em uma mesma célula de tabela.
+\usepackage{tabularx}       % Oferece colunas de largura automática, útil para tabelas que precisam se ajustar ao texto.
+\usepackage{array}          % Oferece mais opções para formatação de colunas em tabelas.
+\usepackage{longtable}      % Permite criar tabelas que se estendem por várias páginas, útil para dados extensos.
+
+% ----------------------------------------------------------
+% AUTORIA E INFORMAÇÕES DE CAPA
+% ----------------------------------------------------------
+\usepackage{authblk}          % Facilita a organização de autores e afiliações em documentos acadêmicos.
+
+% ----------------------------------------------------------
+% CÓDIGO-FONTE E DESTAQUE DE SINTAXE
+% ----------------------------------------------------------
+\usepackage[dvipsnames]{xcolor}             % Define cores adicionais, úteis em links, código e elementos visuais.
+\usepackage{minted}                         % Formatação de código com destaque de sintaxe via Pygments.
+\usepackage{matlab-prettifier}              % Melhora a exibição de trechos de código MATLAB.
+\usepackage{tcolorbox}                      % Criação de caixas de texto coloridas, úteis para destacar definições, exemplos ou código.
+\tcbuselibrary{minted, skins, breakable}    % Habilita bibliotecas do tcolorbox para integração com minted e opções avançadas de formatação.
+
+% ----------------------------------------------------------
+% HIPERLINKS E NAVEGAÇÃO NO PDF
+% ----------------------------------------------------------
+\usepackage[colorlinks=true, allcolors=blue]{hyperref} % Cria links clicáveis no PDF, como sumário e referências.
+
+% ----------------------------------------------------------
+% CABEÇALHO, RODAPÉ E DIMENSÕES DA PÁGINA
+% ----------------------------------------------------------
+
+% Margens exigidas: 2,0 cm em todos os lados
+\usepackage[
+    a4paper,
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm,
+    includehead
+]{geometry}
+
+% Espaçamento entre linhas exatamente 15 pt
+\AtBeginDocument{\fontsize{12pt}{15pt}\selectfont}
+
+% Espaço entre parágrafos exatamente 3 pt
+\setlength{\parskip}{3pt}
+
+% Recuo de parágrafo
+\setlength{\parindent}{1.25cm}
+
+% Cabeçalho e numeração no canto superior direito
+\usepackage{fancyhdr}
+\cfoot{\thepage} % Numeração centralizada no rodapé
+
+% ----------------------------------------------------------
+% ESTILO DA BIBLIOGRAFIA
+% ----------------------------------------------------------
+\bibliographystyle{plain}     % Define o estilo bibliográfico padrão simples.
