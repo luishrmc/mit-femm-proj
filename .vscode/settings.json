@@ -1,41 +1,32 @@
 {
-    "latex-workshop.latex.outputDir": "./out/",
-    "latex-workshop.latex.autoBuild.run": "onSave",
-    "latex-workshop.latex.recipes": [
-        {
-            "name": "latexmk",
-            "tools": [
-                "latexmk"
-            ]
-        }
-    ],
+    "latex-workshop.latex.outDir": "out",
+    "latex-workshop.autoBuild.run": "onSave",
+    "latex-workshop.latex.bibtexPath": "bibtex",
     "latex-workshop.latex.tools": [
         {
-            "name": "latexmk",
+            "name": "latexmk (Universal)",
             "command": "latexmk",
             "args": [
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
                 "-pdf",
+                "-pdflatex=pdflatex %O %S",
                 "--shell-escape",
-                "-aux-directory=out",
-                "-output-directory=out",
-                "-jobname=PROJETO_FEMM_MAQUINAS_DE_CORRENTE_ALTERNADA",
+                "-outdir=out",
+                "-auxdir=out",
                 "%DOC%"
             ]
         },
         {
-            "name": "pdflatex",
+            "name": "pdflatex (single run)",
             "command": "pdflatex",
             "args": [
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
                 "--shell-escape",
-                "-aux-directory=out",
                 "-output-directory=out",
-                "-jobname=PROJETO_FEMM_MAQUINAS_DE_CORRENTE_ALTERNADA",
                 "%DOC%"
             ]
         },
@@ -43,9 +34,41 @@
             "name": "bibtex",
             "command": "bibtex",
             "args": [
-                "%DOCFILE%"
-            ],
-            "env": {}
+                "out/%DOCFILE%"
+            ]
+        },
+        {
+            "name": "latexmk clean",
+            "command": "latexmk",
+            "args": [
+                "-C",
+                "-outdir=out",
+                "-auxdir=out",
+                "%DOC%"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "Latexmk (pdf)",
+            "tools": [
+                "latexmk (Universal)"
+            ]
+        },
+        {
+            "name": "pdflatex -> bibtex -> pdflatex x2",
+            "tools": [
+                "pdflatex (single run)",
+                "bibtex",
+                "pdflatex (single run)",
+                "pdflatex (single run)"
+            ]
+        },
+        {
+            "name": "Clean (latexmk)",
+            "tools": [
+                "latexmk clean"
+            ]
         }
     ]
 }
