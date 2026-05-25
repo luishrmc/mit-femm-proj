@@ -147,19 +147,19 @@
 [CircuitProps]  = 3
   <BeginCircuit>
     <CircuitName> = "fase_A"
-    <TotalAmps_re> = 20
+    <TotalAmps_re> = 10
     <TotalAmps_im> = 0
     <CircuitType> = 1
   <EndCircuit>
   <BeginCircuit>
     <CircuitName> = "fase_B"
-    <TotalAmps_re> = -10
+    <TotalAmps_re> = -5
     <TotalAmps_im> = 0
     <CircuitType> = 1
   <EndCircuit>
   <BeginCircuit>
     <CircuitName> = "fase_C"
-    <TotalAmps_re> = -10
+    <TotalAmps_re> = -5
     <TotalAmps_im> = 0
     <CircuitType> = 1
   <EndCircuit>
