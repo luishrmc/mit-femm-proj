@@ -83,24 +83,24 @@ CASES: list[FemCase] = [
         rotor_slots=None,
     ),
     # Exemplo para ativar depois:
-    # FemCase(
-    #     name="camada_dupla_passo_pleno",
-    #     fem_file=Path(r"C:\Users\lumac\ufmg\braz\conv-trab\motor\femm\motor_cd_pp.FEM"),
-    #     i_base_a=12.544,
-    #     rg_mm=74.250,
-    #     stator_slots=36,
-    #     pole_pairs=3,
-    #     rotor_slots=None,
-    # ),
-    # FemCase(
-    #     name="camada_dupla_passo_encurtado",
-    #     fem_file=Path(r"C:\Users\lumac\ufmg\braz\conv-trab\motor\femm\motor_cd_pe.FEM"),
-    #     i_base_a=12.544,
-    #     rg_mm=74.250,
-    #     stator_slots=36,
-    #     pole_pairs=3,
-    #     rotor_slots=None,
-    # ),
+    FemCase(
+        name="camada_dupla_passo_pleno",
+        fem_file=Path(r"C:\Users\lumac\ufmg\braz\conv-trab\motor\femm\motor_cd_pp.FEM"),
+        i_base_a=5.888,
+        rg_mm=74.250,
+        stator_slots=36,
+        pole_pairs=3,
+        rotor_slots=None,
+    ),
+    FemCase(
+        name="camada_dupla_passo_encurtado",
+        fem_file=Path(r"C:\Users\lumac\ufmg\braz\conv-trab\motor\femm\motor_cd_pe.FEM"),
+        i_base_a=5.888,
+        rg_mm=74.250,
+        stator_slots=36,
+        pole_pairs=3,
+        rotor_slots=None,
+    ),
 ]
 
 
