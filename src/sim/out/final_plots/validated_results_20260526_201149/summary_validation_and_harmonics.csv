@@ -1,4 +1,0 @@
-case,I_BASE_A,B99_5_core_T,Bmax_abs_core_T,fundamental_order,fundamental_amplitude_T,dominant_slot_label,dominant_slot_order,dominant_slot_amplitude_T
-camada_simples_passo_pleno,12.544,1.6976875514732281,5.175344110941428,3,0.6350961666673571,estator_33,33,0.5364392303148883
-camada_dupla_passo_pleno,6.288,1.7427038006056512,4.412122296421188,3,0.6363266915529492,estator_33,33,0.5370803434304423
-camada_dupla_passo_encurtado,6.288,1.7039339489601986,3.7321276199637587,3,0.623266125527354,estator_33,33,0.5372251023000856
