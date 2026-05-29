@@ -42,7 +42,7 @@ from matplotlib.ticker import FormatStrFormatter, MaxNLocator
 ANS_SEARCH_ROOT = Path(r"C:\Users\lumac\ufmg\braz\conv-trab\motor\femm")
 
 # Pasta de saída do pós-processamento atual.
-RESULTS_DIR = Path(r"C:\Users\lumac\ufmg\braz\conv-trab\src\sim\out\postprocess")
+RESULTS_DIR = Path(r"C:\Users\lumac\ufmg\braz\conv-trab\src\sim\out")
 
 # Critério apenas informativo de validação do campo no núcleo.
 # O script NÃO ajusta corrente e NÃO bloqueia a geração dos gráficos.
@@ -161,7 +161,7 @@ CASES: list[FemAnsCase] = [
         rg_mm=74.250,
         stator_slots=36,
         pole_pairs=3,
-        i_base_a=5.9,
+        i_base_a=6.5,
     ),
     FemAnsCase(
         name="motor_cd_pe",
@@ -169,7 +169,7 @@ CASES: list[FemAnsCase] = [
         rg_mm=74.250,
         stator_slots=36,
         pole_pairs=3,
-        i_base_a=6.2,
+        i_base_a=7.95,
     ),
 ]
 
