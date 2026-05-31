@@ -1,7 +1,7 @@
 -- ============================================================
 -- FEMM Lua script
 -- Posicionamento dos block labels das bobinas do estator
--- Camada dupla - passo pleno
+-- Camada dupla - passo encurtado
 -- 36 ranhuras
 -- Camada superior: R = 72 mm
 -- Camada inferior: R = 62 mm
@@ -18,7 +18,7 @@ clearconsole()
 N_ESPIRAS = 20        -- altere aqui o número de espiras por lado de bobina
 
 N_RANHURAS = 36
-PASSO_RANHURAS = 5    -- passo pleno para máquina de 36 ranhuras e 6 polos
+PASSO_RANHURAS = 5    -- passo encurtado para máquina de 36 ranhuras e 6 polos
 
 R_SUPERIOR = 72.0     -- raio da camada superior [mm]
 R_INFERIOR = 62.0     -- raio da camada inferior [mm]
