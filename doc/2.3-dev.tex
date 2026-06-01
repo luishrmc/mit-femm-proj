@@ -1,1 +1,69 @@
 \section{Item c)}
+
+% Requer no preâmbulo:
+% \usepackage{graphicx}
+% \usepackage{float}
+
+% Macro segura: se a figura não existir, o LaTeX compila e mostra um quadro.
+\providecommand{\safeimg}[3]{%
+\IfFileExists{#3}{%
+\includegraphics[width=#1,height=#2,keepaspectratio]{#3}%
+}{%
+\fbox{\parbox[c][#2][c]{#1}{\centering \scriptsize Figura ausente:\\ \detokenize{#3}}}%
+}%
+}
+
+A distribuição espacial da densidade de fluxo no entreferro foi obtida no FEMM para as três configurações de enrolamento. As correntes foram ajustadas por meio de um script em Python, que modifica automaticamente os circuitos de fase do FEMM e executa o solver até que a densidade de fluxo representativa no núcleo fique próxima da meta de \(1{,}7\,\mathrm{T}\). Como critério de calibração, utilizou-se \(B_{99,5\%}\) no núcleo, e não o máximo absoluto da malha, pois este pode ocorrer em pontos localizados, como quinas de dentes ou extremidades de ranhuras.
+
+\begin{figure}[H]
+\centering
+\scriptsize
+\begin{tabular}{ccc}
+Camada simples, passo pleno &
+Camada dupla, passo pleno &
+Camada dupla, passo encurtado \\[-0.05cm]
+\safeimg{0.31\textwidth}{0.145\textheight}{img/motor_cs_pp/motor_cs_pp_density_Bmag_with_flux_lines.png} &
+\safeimg{0.31\textwidth}{0.145\textheight}{img/motor_cd_pp/motor_cd_pp_density_Bmag_with_flux_lines.png} &
+\safeimg{0.31\textwidth}{0.145\textheight}{img/motor_cd_pe/motor_cd_pe_density_Bmag_with_flux_lines.png}
+\end{tabular}
+\caption{Distribuição de \(|B|\) com linhas de campo para as três configurações de enrolamento. Em todas as imagens foi utilizada a mesma escala, de \(0\) a \(2\,\mathrm{T}\).}
+\label{fig:femm_linhas_fluxo}
+\end{figure}
+
+A Fig.~\ref{fig:femm_linhas_fluxo} mostra que o fluxo se fecha pelo caminho magnético esperado: estator, entreferro, rotor e retorno por polos adjacentes. A distribuição das linhas de campo apresenta três pares de polos ao longo de \(360^\circ\) mecânicos, em conformidade com uma máquina de 6 polos. Não se observa fluxo dominante pela região externa de ar, o que indica que os materiais, circuitos e sentidos de corrente produzem uma solução fisicamente consistente.
+
+\begin{figure}[H]
+\centering
+\scriptsize
+\begin{tabular}{ccc}
+Camada simples, passo pleno &
+Camada dupla, passo pleno &
+Camada dupla, passo encurtado \\[-0.05cm]
+\safeimg{0.31\textwidth}{0.145\textheight}{img/motor_cs_pp/motor_cs_pp_density_Bmag_only.png} &
+\safeimg{0.31\textwidth}{0.145\textheight}{img/motor_cd_pp/motor_cd_pp_density_Bmag_only.png} &
+\safeimg{0.31\textwidth}{0.145\textheight}{img/motor_cd_pe/motor_cd_pe_density_Bmag_only.png}
+\end{tabular}
+\caption{Distribuição de \(|B|\) sem linhas de campo. Em todas as imagens foi utilizada a mesma escala, de \(0\) a \(2\,\mathrm{T}\).}
+\label{fig:femm_bmag_sem_linhas}
+\end{figure}
+
+Na Fig.~\ref{fig:femm_bmag_sem_linhas}, a ausência das linhas de campo permite observar com maior clareza as regiões de maior densidade de fluxo. Os maiores valores de \(|B|\) concentram-se principalmente nos dentes do estator, nas proximidades do entreferro e nas regiões do rotor alinhadas aos polos. Essa concentração é esperada, pois essas regiões compõem o caminho de menor relutância para o fluxo principal. A utilização da mesma escala de \(0\) a \(2\,\mathrm{T}\) permite comparar diretamente os três casos.
+
+A componente radial \(B_r\) no entreferro foi extraída por Python a partir da solução FEMM, amostrando pontos uniformemente distribuídos em uma circunferência no entreferro.
+
+\begin{figure}[H]
+\centering
+\scriptsize
+\begin{tabular}{ccc}
+Camada simples, passo pleno &
+Camada dupla, passo pleno &
+Camada dupla, passo encurtado \\[-0.05cm]
+\safeimg{0.31\textwidth}{0.145\textheight}{img/motor_cs_pp/fig_airgap_Br_waveform_motor_cs_pp.png} &
+\safeimg{0.31\textwidth}{0.145\textheight}{img/motor_cd_pp/fig_airgap_Br_waveform_motor_cd_pp.png} &
+\safeimg{0.31\textwidth}{0.145\textheight}{img/motor_cd_pe/fig_airgap_Br_waveform_motor_cd_pe.png}
+\end{tabular}
+\caption{Distribuição espacial da componente radial \(B_r\) no entreferro para as três configurações.}
+\label{fig:br_entreferro_tres_casos}
+\end{figure}
+
+As formas de onda da Fig.~\ref{fig:br_entreferro_tres_casos} estão em conformidade com o comportamento esperado: em todos os casos aparecem três ciclos completos ao longo de \(360^\circ\) mecânicos, correspondentes aos três pares de polos da máquina. Além disso, os valores positivos e negativos de \(B_r\) possuem módulos próximos, indicando equilíbrio entre polos norte e sul. Para os casos de passo pleno, as formas de onda são bastante semelhantes. Já a configuração de camada dupla com passo encurtado apresenta aspecto mais próximo de uma senoide, o que é coerente com a teoria de enrolamentos, pois o encurtamento de passo atenua componentes harmônicas espaciais, especialmente aquelas associadas às harmônicas elétricas de 5ª e 7ª ordem.

@@ -877,7 +877,7 @@ def plot_harmonic_bars_zoom(cases: list[CaseData], out_dir: Path, *, normalized:
         ax,
         xlabel=r"Ordem harmônica espacial mecânica, $n$",
         ylabel=ylabel,
-        title=fr"Zoom em barras do espectro {norm_txt} de $B_r$: {lo} ≤ n ≤ {hi}",
+        title=fr"Zoom em barras do espectro de $B_r$: {lo} ≤ n ≤ {hi}",
     )
     ax.set_xticks(x)
     ax.set_xticklabels([f"n={o}" for o in orders], rotation=0)

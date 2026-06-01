@@ -1,47 +1,36 @@
-\section{Item d)}
+\section{Item d}
 
-A interpretação do espectro harmônico extraído do FEMM deve ser feita com cuidado porque o eixo horizontal dos gráficos representa a ordem harmônica espacial mecânica, denotada por $n$, e não diretamente a ordem harmônica elétrica do enrolamento. Como a máquina analisada possui 6 polos, há $p=3$ pares de polos. Dessa forma, a relação entre a harmônica elétrica $\nu$ da distribuição de enrolamento e a ordem mecânica observada na FFT é dada por
+O espectro espacial de \(B_r\) foi obtido pela FFT dos dados extraídos no entreferro. Como a amostragem foi realizada ao longo de \(360^\circ\) mecânicos, o eixo dos gráficos representa a ordem harmônica espacial mecânica \(n\). Portanto, para a máquina de 6 polos, com \(p=3\) pares de polos, a fundamental elétrica aparece em \(n=3\). Do mesmo modo, as harmônicas elétricas de 5ª e 7ª ordem devem ser avaliadas em \(n=15\) e \(n=21\), respectivamente, e não diretamente em \(n=5\) e \(n=7\).
 
-$$n = \nu p.$$
+\vspace{-0.15cm}
+\begin{figure}[!htbp]
+\centering
+\scriptsize
+\begin{tabular}{@{}cc@{}}
+\safeimg{0.48\textwidth}{0.125\textheight}{img/fig_airgap_Br_spectrum_zoom_bars_baixa_ordem_enrolamento_absolute.png} &
+\safeimg{0.48\textwidth}{0.125\textheight}{img/fig_airgap_Br_spectrum_zoom_bars_ranhura_principal_normalized.png}
+\\[-0.05cm]
+(a) Baixa ordem e fundamental &
+(b) Ranhura principal, \(S\pm p\)
+\\[0.05cm]
+\safeimg{0.48\textwidth}{0.125\textheight}{img/fig_airgap_Br_spectrum_zoom_bars_ranhura_secundaria_absolute.png} &
+\safeimg{0.48\textwidth}{0.125\textheight}{img/fig_airgap_Br_spectrum_zoom_bars_ranhura_superior_absolute.png}
+\\[-0.05cm]
+(c) Ranhura secundária, \(2S\pm p\) &
+(d) Ranhura superior, \(3S\pm p\)
+\end{tabular}
+\vspace{-0.20cm}
+\caption{Espectro espacial mecânico de \(B_r\) para as três configurações de enrolamento.}
+\label{fig:itemd_espectro_comparativo}
+\end{figure}
+\vspace{-0.25cm}
 
-Consequentemente, a componente fundamental da onda de densidade de fluxo no entreferro, correspondente à harmônica elétrica $\nu=1$, aparece na ordem mecânica
+Na Fig.~\ref{fig:itemd_espectro_comparativo}(a), a componente dominante ocorre em \(n=3\), confirmando a fundamental espacial da máquina de 6 polos. As amplitudes fundamentais foram \(0{,}7943\,\mathrm{T}\), \(0{,}7930\,\mathrm{T}\) e \(0{,}7764\,\mathrm{T}\), respectivamente, para camada simples com passo pleno, camada dupla com passo pleno e camada dupla com passo encurtado. Os dois casos de passo pleno são praticamente coincidentes, indicando que a troca de camada simples para camada dupla, mantendo o passo pleno, não altera de forma relevante a fundamental no entreferro.
 
-$$n = 1 \cdot 3 = 3.$$
+A redução causada pelo passo encurtado deve ser avaliada em \(n=15\) e \(n=21\). Em \(n=15\), associado à 5ª harmônica elétrica, as amplitudes foram \(0{,}0200\,\mathrm{T}\), \(0{,}0201\,\mathrm{T}\) e \(0{,}0027\,\mathrm{T}\). Em \(n=21\), associado à 7ª harmônica elétrica, os valores foram \(0{,}0185\,\mathrm{T}\), \(0{,}0185\,\mathrm{T}\) e \(0{,}0031\,\mathrm{T}\). Portanto, o passo encurtado reduziu fortemente os harmônicos de enrolamento de 5ª e 7ª ordem, o que está de acordo com a teoria dos fatores de passo e de enrolamento.
 
-Isso é exatamente o que se observa no espectro obtido: a maior componente está em $n=3$, com amplitudes próximas de $0{,}79\,\mathrm{T}$ para as três configurações. Os valores extraídos foram aproximadamente $0{,}7943\,\mathrm{T}$ para camada simples com passo pleno, $0{,}7930\,\mathrm{T}$ para camada dupla com passo pleno e $0{,}7764\,\mathrm{T}$ para camada dupla com passo encurtado. Portanto, o resultado confirma que o processamento está identificando corretamente a fundamental espacial de uma máquina de 6 polos.
+Os harmônicos de ranhura foram identificados considerando \(S=36\) ranhuras de estator e \(p=3\) pares de polos. Assim, as principais famílias analisadas são \(S\pm p\), \(2S\pm p\) e \(3S\pm p\). Na Fig.~\ref{fig:itemd_espectro_comparativo}(b), a família principal aparece em \(n=33\) e \(n=39\). O harmônico dominante de ranhura é \(n=33\), com amplitude normalizada próxima de \(0{,}260\) em todos os casos; em \(n=39\), a amplitude normalizada é aproximadamente \(0{,}093\). Isso mostra que essas componentes são pouco afetadas pelo tipo de enrolamento, pois dependem principalmente da geometria ranhurada comum aos três modelos.
 
-A principal fonte de erro de interpretação ocorre quando se observa diretamente as barras $n=5$ e $n=7$ do gráfico e se conclui que elas representam a 5ª e a 7ª harmônicas elétricas. Essa interpretação não é correta. Como o eixo está em ordem mecânica, as barras $n=5$ e $n=7$ não correspondem às harmônicas elétricas $\nu=5$ e $\nu=7$. Para uma máquina com $p=3$, essas posições corresponderiam formalmente a $\nu = 5/3$ e $\nu = 7/3$, que não são as harmônicas inteiras usualmente analisadas na teoria de enrolamentos trifásicos. Assim, os valores observados em $n=5$ e $n=7$ não devem ser usados para validar a redução esperada dos harmônicos de 5ª e 7ª ordem do enrolamento.
+Nas famílias superiores, as Figs.~\ref{fig:itemd_espectro_comparativo}(c) e \ref{fig:itemd_espectro_comparativo}(d) mostram comportamento semelhante. Em \(n=69\), as amplitudes foram \(0{,}0963\,\mathrm{T}\), \(0{,}0962\,\mathrm{T}\) e \(0{,}0938\,\mathrm{T}\); em \(n=75\), foram \(0{,}0682\,\mathrm{T}\), \(0{,}0681\,\mathrm{T}\) e \(0{,}0656\,\mathrm{T}\). Para \(n=105\), obtiveram-se \(0{,}0421\,\mathrm{T}\), \(0{,}0420\,\mathrm{T}\) e \(0{,}0412\,\mathrm{T}\); para \(n=111\), os valores foram \(0{,}0467\,\mathrm{T}\), \(0{,}0466\,\mathrm{T}\) e \(0{,}0457\,\mathrm{T}\). A proximidade entre os três casos confirma que os harmônicos de ranhura são governados pela permeância espacial imposta pelas ranhuras, enquanto o passo encurtado atua principalmente sobre os harmônicos de enrolamento.
 
-As harmônicas elétricas de interesse devem ser procuradas nas ordens mecânicas obtidas pela conversão $n=\nu p$. Logo, para a 5ª harmônica elétrica,
-
-$$n = 5 \cdot 3 = 15,$$
-
-e, para a 7ª harmônica elétrica,
-
-$$n = 7 \cdot 3 = 21.$$
-
-Portanto, a validação do efeito do passo encurtado deve ser feita nas barras $n=15$ e $n=21$, e não nas barras $n=5$ e $n=7$.
-
-Os resultados obtidos confirmam a tendência teórica esperada. Para a ordem mecânica $n=15$, correspondente à 5ª harmônica elétrica, as amplitudes foram aproximadamente $0{,}0200\,\mathrm{T}$ na camada simples com passo pleno, $0{,}0201\,\mathrm{T}$ na camada dupla com passo pleno e apenas $0{,}00269\,\mathrm{T}$ na camada dupla com passo encurtado. Em termos relativos à fundamental de cada caso, isso corresponde a cerca de $2{,}52\%$, $2{,}53\%$ e $0{,}35\%$, respectivamente. Assim, ao passar de camada dupla com passo pleno para camada dupla com passo encurtado, a 5ª harmônica elétrica foi reduzida para aproximadamente $13{,}7\%$ do valor relativo original, isto é, uma redução de cerca de $86\%$.
-
-De modo semelhante, para a ordem mecânica $n=21$, correspondente à 7ª harmônica elétrica, as amplitudes foram aproximadamente $0{,}0185\,\mathrm{T}$ na camada simples com passo pleno, $0{,}0185\,\mathrm{T}$ na camada dupla com passo pleno e $0{,}00314\,\mathrm{T}$ na camada dupla com passo encurtado. Em termos relativos à fundamental, esses valores correspondem a cerca de $2{,}33\%$, $2{,}33\%$ e $0{,}40\%$, respectivamente. Portanto, a 7ª harmônica elétrica foi reduzida para aproximadamente $17{,}3\%$ do valor relativo observado no caso de camada dupla com passo pleno, o que representa uma redução de cerca de $83\%$.
-
-Esses resultados estão qualitativamente de acordo com a teoria de enrolamentos. Para um passo encurtado de $5/6$ do passo polar, o fator de passo reduz fortemente as componentes de 5ª e 7ª ordem. Usando a formulação clássica,
-
-$$k_{p,\nu} = \cos\left(\frac{\nu \varepsilon}{2}\right),$$
-
-com encurtamento elétrico $\varepsilon = 30^\circ$, obtêm-se
-
-$$|k_{p,5}| = |\cos(75^\circ)| \approx 0{,}2588,$$
-
-e
-
-$$|k_{p,7}| = |\cos(105^\circ)| \approx 0{,}2588.$$
-
-Ou seja, a teoria prevê uma forte atenuação das harmônicas elétricas de 5ª e 7ª ordem quando se utiliza passo encurtado. O FEMM reproduziu exatamente essa tendência, pois as componentes em $n=15$ e $n=21$ diminuíram de forma expressiva na configuração de camada dupla com passo encurtado.
-
-A diferença entre a redução teórica ideal e a redução observada numericamente é esperada. A teoria dos fatores de enrolamento considera, em geral, uma distribuição idealizada de força magnetomotriz, entreferro uniforme, permeabilidade elevada ou infinita no ferro e ausência de efeitos de ranhura, saturação e rotor. Já o modelo FEMM considera a geometria ranhurada, a permeabilidade finita e possivelmente não linear do aço, a presença do rotor e a extração da componente radial $B_r$ em um raio fixo do entreferro. Esses fatores modificam as amplitudes finais dos harmônicos de densidade de fluxo, especialmente quando se comparam amplitudes pequenas.
-
-Além disso, o espectro apresenta componentes importantes em ordens associadas às ranhuras. Considerando $S=36$ ranhuras de estator e $p=3$, as ordens $S-p=33$ e $S+p=39$ são candidatas naturais a harmônicos de ranhura. De fato, as amplitudes nessas ordens são significativamente maiores que as dos harmônicos de baixa ordem do enrolamento, especialmente em $n=33$. Isso indica que parte importante da ondulação espacial de $B_r$ no entreferro não vem apenas da distribuição senoidal ideal do enrolamento, mas também da modulação de permeância causada pelo ranhuramento.
-
-Portanto, a interpretação correta dos resultados é que o passo encurtado funcionou conforme o esperado. A conclusão equivocada surgiria apenas se as barras $n=5$ e $n=7$ fossem interpretadas como 5ª e 7ª harmônicas elétricas. Como a FFT está em ordem mecânica, a comparação correta deve ser feita em $n=15$ e $n=21$. Nessas ordens, os resultados FEMM mostram redução acentuada das componentes correspondentes às harmônicas elétricas de 5ª e 7ª ordem, validando qualitativamente o comportamento previsto pela teoria dos fatores de enrolamento.
+Conclui-se que o espectro FEMM está coerente com a análise teórica: a fundamental ocorre em \(n=3\), a 5ª e a 7ª harmônicas elétricas devem ser lidas em \(n=15\) e \(n=21\), e os harmônicos de ranhura aparecem nas famílias esperadas. A configuração de camada dupla com passo encurtado reduz significativamente os harmônicos de enrolamento de baixa ordem, sem alterar de forma expressiva os harmônicos de ranhura.
